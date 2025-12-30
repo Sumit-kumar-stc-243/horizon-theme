@@ -91,6 +91,13 @@
         "padding-block-end": 72
       }
     },
+    "hero_section_Jrchkj": {
+      "type": "hero-section",
+      "name": "Hero Section ",
+      "settings": {
+        "hero-section-image": "shopify://shop_images/beauty-portrait-mystery-smiling-ginger-woman-with-long-hair-posing-sideways-looking_1.png"
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -1862,6 +1869,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "hero_section_Jrchkj",
     "product_list_fa6P9H",
     "media_with_content_HH9qtk",
     "marquee_VqhXjD",
