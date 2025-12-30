@@ -1,0 +1,89 @@
+<style>
+  .custom-button{
+      color:{{ block.settings.font-color }};
+      border:none;
+      background-color:{{ block.settings.background-color }};
+      border-radius: {{ block.settings.border-radius }}px ;
+      padding: {{  block.settings.padding-top}}% {{ block.settings.padding-left }}%;
+      position:absolute;
+      top: {{ block.settings.top }}%;
+      left: {{ block.settings.left }}%;
+  }
+</style>
+
+<a class="custom-button" href="{{ block.settings.button-url }}">{{ block.settings.text }}</a>
+
+{% schema %}
+{
+  "name": "custom buttom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button-url",
+      "label": "Button Url"
+    },
+    {
+      "type": "color",
+      "id": "font-color",
+      "label": "Color"
+    },
+    {
+      "type": "range",
+      "id": "border-radius",
+      "default": 0,
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "label": "Border Radius"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color"
+    },
+    {
+      "type": "range",
+      "id": "padding-top",
+      "label": "Padding Top Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-left",
+      "label": "Padding Left Right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 15,
+      "label": "Top"
+    },
+    {
+      "type": "range",
+      "id": "left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Left"
+    }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "custom buttom" }]
+}
+{% endschema %}
