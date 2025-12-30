@@ -6,7 +6,7 @@
 {% endstyle %}
 
 <div class="hero-section">
-  <img class="hero-section-image" src="{{ section.settings.hero-section-image }}" height="" width="">
+  <img class="hero-section-image" src="{{ section.settings.hero-section-image | image_url: width: 2000  }}" height="" width="">
 </div>
 
 {% javascript %}
