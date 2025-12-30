@@ -2,8 +2,12 @@
     .custom-button{
         color:{{ block.settings.font-color }};
         background-color:{{ block.settings.background-color }};
-        border-radius: {{ block.settings.border-radius }};
+        border-radius: {{ block.settings.border-radius }}%;
         padding: {{  block.settings.padding-top}}% {{ block.settings.padding-left }}%;
+        position:absolute;
+        z-index:11;
+        top: {{ block.settings.top }}%;
+        left: {{ block.settings.left }}%;
     }
 </style>
 
@@ -55,6 +59,24 @@
         "step": 1,
         "default":0,
     },
+    {
+        "type": "range",
+        "id": "top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 0,
+        "label": "Top"
+      },
+      {
+        "type": "range",
+        "id": "left",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "default": 0,
+        "label": "Left"
+      },
   ],
   "blocks": [],
   "presets": [{ "name": "custom buttom" }]
