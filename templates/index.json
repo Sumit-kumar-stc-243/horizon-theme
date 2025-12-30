@@ -99,12 +99,13 @@
           "name": "custom buttom",
           "settings": {
             "text": "Shop Now",
+            "button-url": "shopify://collections/trousers-pants-copy",
             "font-color": "#ffffff",
             "border-radius": 15,
             "background-color": "#000000",
             "padding-top": 2,
             "padding-left": 5,
-            "top": 21,
+            "top": 37,
             "left": 0
           },
           "blocks": {}
