@@ -94,35 +94,22 @@
     "hero_section_Jrchkj": {
       "type": "hero-section",
       "blocks": {
-        "text_GbVAMH": {
-          "type": "text",
-          "name": "t:names.heading",
+        "heading_6YN9Y4": {
+          "type": "heading",
+          "name": "custom heading",
           "settings": {
-            "text": "<h2><em><strong>asdfasdfasdf</strong></em></h2>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "heading": "New Gear",
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "weight": 400
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "text_GbVAMH"
+        "heading_6YN9Y4"
       ],
       "name": "Hero Section ",
       "settings": {
