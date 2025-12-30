@@ -1506,7 +1506,7 @@
               "settings": {
                 "heading": "What is the return policy?",
                 "open_by_default": false,
-                "icon": "none",
+                "icon": "arrow",
                 "width": 20
               },
               "blocks": {
@@ -1545,7 +1545,7 @@
               "settings": {
                 "heading": "Are any purchases final sale?",
                 "open_by_default": false,
-                "icon": "none",
+                "icon": "arrow",
                 "width": 20
               },
               "blocks": {
@@ -1585,7 +1585,7 @@
               "settings": {
                 "heading": "When will I get my order?",
                 "open_by_default": false,
-                "icon": "none",
+                "icon": "arrow",
                 "width": 20
               },
               "blocks": {
@@ -1626,7 +1626,7 @@
               "settings": {
                 "heading": "Where are your products manufactured?",
                 "open_by_default": false,
-                "icon": "none",
+                "icon": "arrow",
                 "width": 20
               },
               "blocks": {
@@ -1667,7 +1667,7 @@
               "settings": {
                 "heading": "How much does shipping cost?",
                 "open_by_default": false,
-                "icon": "none",
+                "icon": "arrow",
                 "width": 20
               },
               "blocks": {
