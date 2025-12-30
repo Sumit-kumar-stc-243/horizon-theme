@@ -10,11 +10,9 @@
    }
 </style>
 
-{% if section.settings.heading != blank %}
-  <h1 class="custom-heading">
-    {{ section.settings.heading }}
-  </h1>
-{% endif %}
+<h1 class="custom-heading">
+  {{ block.settings.heading }}
+</h1>
 
 {% javascript %}
 {% endjavascript %}
