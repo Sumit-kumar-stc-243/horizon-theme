@@ -2,7 +2,7 @@
 {% endstyle %}
 
 <div class="hero-section">
-    
+
 </div>
 
 {% javascript %}
@@ -12,7 +12,13 @@
 {% schema %}
 {
   "name": "hero section",
-  "settings": [],
+  "settings": [
+    {
+        "type": "image_picker",
+        "id": "hero-section-image",
+        "label": "Background Image"
+    }
+  ],
   "blocks": []
 }
 {% endschema %}
