@@ -1,0 +1,59 @@
+<style>
+  .custom-heading{
+    position:absolute;
+    top:{{ block.settings.top }}%;
+    left:{{ block.settings.left }}%;
+    font-weight: {{ block.settings.weight }};
+    z-index:11;
+    margin:0px;
+   }
+</style>
+
+<h1 class="custom-heading">
+  {{ block.settings.heading }}
+</h1>
+
+{% javascript %}
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "custom-heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Add Heading"
+    },
+    {
+      "type": "range",
+      "id": "top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Top"
+    },
+    {
+      "type": "range",
+      "id": "left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Left"
+    },
+    {
+      "type": "range",
+      "id": "weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 400,
+      "label": "Font Weight"
+    }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "custom heading" }]
+}
+{% endschema %}
