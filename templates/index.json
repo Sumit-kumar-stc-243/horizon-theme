@@ -719,7 +719,7 @@
           "settings": {
             "before_image": "shopify://shop_images/create-a-image-to-show-case-spare-parts-but-fake-conditions.png",
             "after_image": "shopify://shop_images/create-a-image-to-show-case-spare-parts-but-original-condition.png",
-            "slider_style": "horizontal",
+            "slider_style": "vertical",
             "show_text": false,
             "before_text": "",
             "after_text": "",
