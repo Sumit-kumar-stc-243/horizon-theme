@@ -1,15 +1,15 @@
 {% style %}
-.hero-section-image{
-    
-}
+  .hero-section-image {
+    width:100%;
+    height:400px;
+  }
 {% endstyle %}
 
 <div class="hero-section">
-    <img class="hero-section-image" src="{{ section.settings.hero-section-image | asset_url  }}" height="" width="">
+  <img class="hero-section-image" src="{{ section.settings.hero-section-image | asset_url  }}" height="" width="">
 </div>
 
 {% javascript %}
-
 {% endjavascript %}
 
 {% schema %}
@@ -17,15 +17,15 @@
   "name": "hero section",
   "settings": [
     {
-        "type": "image_picker",
-        "id": "hero-section-image",
-        "label": "Background Image"
+      "type": "image_picker",
+      "id": "hero-section-image",
+      "label": "Background Image"
     }
   ],
   "blocks": [],
   "presets": [
     {
-        "name": "Hero Section "
+      "name": "Hero Section "
     }
   ]
 }
