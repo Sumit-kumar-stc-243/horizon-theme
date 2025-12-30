@@ -94,6 +94,17 @@
     "hero_section_Jrchkj": {
       "type": "hero-section",
       "blocks": {
+        "heading_6YN9Y4": {
+          "type": "heading",
+          "name": "custom heading",
+          "settings": {
+            "heading": "adsfasdfadfs",
+            "top": 0,
+            "left": 0,
+            "weight": 400
+          },
+          "blocks": {}
+        },
         "custom_button_eh3EFJ": {
           "type": "custom-button",
           "name": "custom buttom",
@@ -105,26 +116,15 @@
             "background-color": "#000000",
             "padding-top": 2,
             "padding-left": 5,
-            "top": 37,
+            "top": 16,
             "left": 0
-          },
-          "blocks": {}
-        },
-        "heading_6YN9Y4": {
-          "type": "heading",
-          "name": "custom heading",
-          "settings": {
-            "heading": "adsfasdfadfs",
-            "top": 0,
-            "left": 0,
-            "weight": 400
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "custom_button_eh3EFJ",
-        "heading_6YN9Y4"
+        "heading_6YN9Y4",
+        "custom_button_eh3EFJ"
       ],
       "name": "Hero Section ",
       "settings": {
