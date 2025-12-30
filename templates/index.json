@@ -99,9 +99,9 @@
           "name": "custom buttom",
           "settings": {
             "text": "Shop Now",
-            "font-color": "",
-            "border-radius": 0,
-            "background-color": ""
+            "font-color": "#ff0000",
+            "border-radius": 15,
+            "background-color": "#000000"
           },
           "blocks": {}
         },
