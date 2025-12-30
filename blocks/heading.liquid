@@ -1,15 +1,15 @@
 <style>
-   h1{
-    position:absolute;
-    top:{{ section.settings.top }}px;
-    bottom:{{ section.settings.bottom }}px;
-    left:{{ section.settings.left }} px;
-    right: {{ section.settings.right }} px;
-    font-weight: {{ section.settings.weight }};
-   }
+   .custom-heading{
+   position:absolute;
+   top:{{ section.settings.top }}px;
+   bottom:{{ section.settings.bottom }}px;
+   left:{{ section.settings.left }} px;
+   right: {{ section.settings.right }} px;
+   font-weight: {{ section.settings.weight }};
+  }
 </style>
 
-<h1>{{ section.settings.heading }}</h1>
+<h1 class="custom-heading">{{ section.settings.heading }}</h1>
 
 {% javascript %}
 {% endjavascript %}
@@ -70,6 +70,6 @@
     }
   ],
   "blocks": [],
-  "presets": [{"name": "custom heading"}]
+  "presets": [{ "name": "custom heading" }]
 }
 {% endschema %}
