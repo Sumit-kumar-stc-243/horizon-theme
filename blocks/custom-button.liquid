@@ -1,0 +1,37 @@
+<style></style>
+
+<button>{{ block.settings.text }}</button>
+
+{% schema %}
+{
+  "name": "custom buttom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Button Text"
+    },
+    {
+      "type": "color",
+      "id": "font-color",
+      "label": "Color"
+    },
+    {
+      "type": "range",
+      "id": "border-radius",
+      "default": 0,
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "label": "Border Radius"
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "Background Color"
+    }
+  ],
+  "blocks": [],
+  "presets": [{ "name": "custom buttom" }]
+}
+{% endschema %}
