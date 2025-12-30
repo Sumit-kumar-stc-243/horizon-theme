@@ -98,18 +98,33 @@
           "type": "heading",
           "name": "custom heading",
           "settings": {
-            "heading": "adsfasdfadfs",
-            "top": 0,
-            "bottom": 0,
-            "left": 0,
-            "right": 0,
+            "heading": "New Collections",
+            "top": 28,
+            "left": 34,
             "weight": 400
+          },
+          "blocks": {}
+        },
+        "custom_button_eh3EFJ": {
+          "type": "custom-button",
+          "name": "custom buttom",
+          "settings": {
+            "text": "Shop Now",
+            "button-url": "shopify://collections/trousers-pants-copy",
+            "font-color": "#ffffff",
+            "border-radius": 15,
+            "background-color": "#000000",
+            "padding-top": 2,
+            "padding-left": 5,
+            "top": 44,
+            "left": 44
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "heading_6YN9Y4"
+        "heading_6YN9Y4",
+        "custom_button_eh3EFJ"
       ],
       "name": "Hero Section ",
       "settings": {
