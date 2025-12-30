@@ -1,66 +1,66 @@
-{% style %}
-  CSS_rules
-{% endstyle %}
+<style>
+    
+</style>
 
-<h1></h1>
+<h1>{{ section.settings.heading }}</h1>
 
 {% javascript %}
 {% endjavascript %}
 
 {% schema %}
 {
-    "name": "custom-heading",
-    "settings": [
-        {   
-            "type": "text",
-            "id": "heading",
-            "label": "Add Heading"
-        },
-        {
-            "type": "range",
-            "id": "top",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "default":0,
-            "label": "Top"
-        },
-        {
-            "type": "range",
-            "id": "bottom",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "default":0,
-            "label": "Bottom"
-        },
-        {
-            "type": "range",
-            "id": "left",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "default":0,
-            "label": "Left"
-        },
-        {
-            "type": "range",
-            "id": "right",
-            "min": 0,
-            "max": 100,
-            "step": 1,
-            "default":0,
-            "label": "Right"
-        },
-        {
-            "type": "range",
-            "id": "weight",
-            "min": 100,
-            "max": 900,
-            "step": 100,
-            "default":400,
-            "label": "Font Weight"
-        }
-    ]
+  "name": "custom-heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Add Heading"
+    },
+    {
+      "type": "range",
+      "id": "top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Top"
+    },
+    {
+      "type": "range",
+      "id": "bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Bottom"
+    },
+    {
+      "type": "range",
+      "id": "left",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Left"
+    },
+    {
+      "type": "range",
+      "id": "right",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "label": "Right"
+    },
+    {
+      "type": "range",
+      "id": "weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 400,
+      "label": "Font Weight"
+    }
+  ]
 }
 {% endschema %}
