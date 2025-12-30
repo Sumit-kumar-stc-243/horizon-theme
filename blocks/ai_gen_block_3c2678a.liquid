@@ -1,0 +1,569 @@
+{% doc %}
+  @prompt
+    create a footer with the logo , quick links , social media links , and menu , all are dyanmics , and add also copyright
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-footer-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    background-color: {{ block.settings.background_color }};
+    color: {{ block.settings.text_color }};
+    padding: {{ block.settings.padding_top }}px 20px {{ block.settings.padding_bottom }}px;
+  }
+
+  .ai-footer-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-footer-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .ai-footer-column-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ai-footer-logo-{{ ai_gen_id }} {
+    max-width: {{ block.settings.logo_width }}px;
+    height: auto;
+  }
+
+  .ai-footer-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: {{ block.settings.heading_color }};
+  }
+
+  .ai-footer-menu-{{ ai_gen_id }} {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .ai-footer-menu-item-{{ ai_gen_id }} a {
+    color: {{ block.settings.link_color }};
+    text-decoration: none;
+    font-size: {{ block.settings.link_size }}px;
+    transition: color 0.3s ease;
+  }
+
+  .ai-footer-menu-item-{{ ai_gen_id }} a:hover {
+    color: {{ block.settings.link_hover_color }};
+  }
+
+  .ai-footer-social-{{ ai_gen_id }} {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: {{ block.settings.social_icon_size }}px;
+    height: {{ block.settings.social_icon_size }}px;
+    color: {{ block.settings.social_icon_color }};
+    transition: color 0.3s ease;
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }}:hover {
+    color: {{ block.settings.social_icon_hover_color }};
+  }
+
+  .ai-footer-social-link-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-footer-copyright-{{ ai_gen_id }} {
+    text-align: {{ block.settings.copyright_alignment }};
+    padding-top: 24px;
+    border-top: 1px solid {{ block.settings.border_color }};
+    font-size: {{ block.settings.copyright_size }}px;
+    color: {{ block.settings.copyright_color }};
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-footer-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .ai-footer-copyright-{{ ai_gen_id }} {
+      text-align: center;
+    }
+  }
+{% endstyle %}
+
+<footer-block-{{ ai_gen_id }} class="ai-footer-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-footer-container-{{ ai_gen_id }}">
+    <div class="ai-footer-grid-{{ ai_gen_id }}">
+      {% if block.settings.show_logo %}
+        <div class="ai-footer-column-{{ ai_gen_id }}">
+          {% if settings.logo %}
+            <img
+              src="{{ settings.logo | image_url: width: 400 }}"
+              alt="{{ shop.name }}"
+              class="ai-footer-logo-{{ ai_gen_id }}"
+              width="{{ block.settings.logo_width }}"
+              height="auto"
+              loading="lazy"
+            >
+          {% else %}
+            <h2 class="ai-footer-heading-{{ ai_gen_id }}">{{ shop.name }}</h2>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_quick_links and block.settings.quick_links_menu != blank %}
+        <div class="ai-footer-column-{{ ai_gen_id }}">
+          <h3 class="ai-footer-heading-{{ ai_gen_id }}">{{ block.settings.quick_links_title }}</h3>
+          <ul class="ai-footer-menu-{{ ai_gen_id }}">
+            {% for link in linklists[block.settings.quick_links_menu].links %}
+              <li class="ai-footer-menu-item-{{ ai_gen_id }}">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_menu and block.settings.footer_menu != blank %}
+        <div class="ai-footer-column-{{ ai_gen_id }}">
+          <h3 class="ai-footer-heading-{{ ai_gen_id }}">{{ block.settings.menu_title }}</h3>
+          <ul class="ai-footer-menu-{{ ai_gen_id }}">
+            {% for link in linklists[block.settings.footer_menu].links %}
+              <li class="ai-footer-menu-item-{{ ai_gen_id }}">
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if block.settings.show_social %}
+        <div class="ai-footer-column-{{ ai_gen_id }}">
+          <h3 class="ai-footer-heading-{{ ai_gen_id }}">{{ block.settings.social_title }}</h3>
+          <div class="ai-footer-social-{{ ai_gen_id }}">
+            {% if block.settings.social_facebook != blank %}
+              <a
+                href="{{ block.settings.social_facebook }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if block.settings.social_instagram != blank %}
+              <a
+                href="{{ block.settings.social_instagram }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if block.settings.social_twitter != blank %}
+              <a
+                href="{{ block.settings.social_twitter }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="Twitter"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if block.settings.social_youtube != blank %}
+              <a
+                href="{{ block.settings.social_youtube }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="YouTube"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if block.settings.social_tiktok != blank %}
+              <a
+                href="{{ block.settings.social_tiktok }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+              </a>
+            {% endif %}
+
+            {% if block.settings.social_linkedin != blank %}
+              <a
+                href="{{ block.settings.social_linkedin }}"
+                class="ai-footer-social-link-{{ ai_gen_id }}"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if block.settings.show_copyright %}
+      <div class="ai-footer-copyright-{{ ai_gen_id }}">
+        {{ block.settings.copyright_text }}
+      </div>
+    {% endif %}
+  </div>
+</footer-block-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class FooterBlock{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+      }
+    }
+
+    customElements.define('footer-block-{{ ai_gen_id }}', FooterBlock{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Footer",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo",
+      "label": "Show logo",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 150
+    },
+    {
+      "type": "header",
+      "content": "Quick links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_quick_links",
+      "label": "Show quick links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "quick_links_title",
+      "label": "Quick links title",
+      "default": "Quick links"
+    },
+    {
+      "type": "link_list",
+      "id": "quick_links_menu",
+      "label": "Quick links menu"
+    },
+    {
+      "type": "header",
+      "content": "Menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu",
+      "label": "Show menu",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "menu_title",
+      "label": "Menu title",
+      "default": "Information"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social media",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "social_title",
+      "label": "Social media title",
+      "default": "Follow us"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "social_twitter",
+      "label": "Twitter"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok"
+    },
+    {
+      "type": "url",
+      "id": "social_linkedin",
+      "label": "LinkedIn"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_copyright",
+      "label": "Show copyright",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "© 2025 All rights reserved"
+    },
+    {
+      "type": "select",
+      "id": "copyright_alignment",
+      "label": "Copyright alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "social_icon_color",
+      "label": "Social icon color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "social_icon_hover_color",
+      "label": "Social icon hover color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "copyright_color",
+      "label": "Copyright text color",
+      "default": "#666666"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "link_size",
+      "label": "Link size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "copyright_size",
+      "label": "Copyright size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "social_icon_size",
+      "label": "Social icon size",
+      "min": 20,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
+    }
+  ]
+}
+{% endschema %}
