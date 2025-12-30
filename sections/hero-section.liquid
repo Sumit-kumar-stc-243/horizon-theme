@@ -1,8 +1,11 @@
 {% style %}
+.hero-section-image{
+    
+}
 {% endstyle %}
 
 <div class="hero-section">
-    <img src="{{ section.settings.hero-section-image | asset_url  }}" height="" width="">
+    <img class="hero-section-image" src="{{ section.settings.hero-section-image | asset_url  }}" height="" width="">
 </div>
 
 {% javascript %}
